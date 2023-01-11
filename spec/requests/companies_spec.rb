@@ -22,7 +22,7 @@ RSpec.describe "Companies", type: :request do
                 expect(payload).to_not be_empty
                 expect(payload.size).to eq(1)
                 expect(payload.map { |p| p["id"]}.sort ).to eq([prime.id].sort)
-                expect(payload).to have_http_status(200)
+                expect(response).to have_http_status(200)
             end
         end
     end
@@ -57,7 +57,7 @@ RSpec.describe "Companies", type: :request do
     end
 
 
-    describe " COMPANY /posts" do
+    describe " COMPANY /companies" do
         let!(:company) { create(:company) }
 
         it "should create a company" do
@@ -73,7 +73,7 @@ RSpec.describe "Companies", type: :request do
             }
 
             #POST HTTP
-            company "/companies", params: req_payload
+            post "/companies", params: req_payload
             payload = JSON.parse(response.body)
             expect(payload).to_not be_empty
             expect(payload).not_to be_nil
@@ -90,7 +90,7 @@ RSpec.describe "Companies", type: :request do
             }
 
             # POST HTTP
-            company "/companies", params: req_payload
+            post "/companies", params: req_payload
             payload = JSON.parse(response.body)
             expect(payload).to_not be_empty
             expect(payload["error"]).to_not be_empty

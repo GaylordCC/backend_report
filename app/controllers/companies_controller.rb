@@ -1,5 +1,4 @@
 class CompaniesController < ApplicationController
-
     # GET / companies
     def index
         @companies = Company.all
@@ -18,7 +17,7 @@ class CompaniesController < ApplicationController
     # COMPANY /companies
     def create
         @company = Company.create!(create_params)
-        render json: @company, status: :create
+        render json: @company, status: :created
     end
 
     # COMPANY /companies/{id}
@@ -31,11 +30,11 @@ class CompaniesController < ApplicationController
     private
 
     def create_params
-        params.require(:company).permit(:name, :identification, :adress, :email, :phone)
+        params.require(:company).permit(:name, :city, :identification, :adress, :email, :phone)
     end
 
     def update_params
-        params.require(:company).permit(:name, :identification, :adress, :email, :phone)
+        params.require(:company).permit(:name, :city, :identification, :adress, :email, :phone)
     end
 
 end
