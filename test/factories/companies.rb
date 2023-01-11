@@ -1,10 +1,12 @@
+require "faker"
+
 FactoryBot.define do
   factory :company do
-    name { Faker::address.cityName }
-    city { Faker::address.cityName }
-    identification { Faker::address.cityName }
-    adress { Faker::address.cityName }
-    email { Faker::internet.email }
-    phone { Faker::address.cityName }
+    name { Faker::App.name }
+    city { Faker::Address.city }
+    identification { Faker::Number.leading_zero_number(digits: 10) }
+    adress { Faker::Address.full_address }
+    email { Faker::Internet.email }
+    phone { Faker::PhoneNumber.cell_phone_with_country_code }
   end
 end
