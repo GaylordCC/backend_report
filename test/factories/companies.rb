@@ -2,7 +2,7 @@ require "faker"
 
 FactoryBot.define do
   factory :company do
-    name { Faker::App.name }
+    name { Faker::Company.name }
     city { Faker::Address.city }
     identification { Faker::Number.leading_zero_number(digits: 10) }
     adress { Faker::Address.full_address }

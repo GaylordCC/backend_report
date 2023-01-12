@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   get '/health', to: 'health#health'
 
   resources :companies, only: [:index, :show, :create, :update]
+  resources :visits, only: [:index]
 end

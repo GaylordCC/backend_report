@@ -1,4 +1,8 @@
 class Company < ApplicationRecord
+    #relationship
+    has_many :visits
+
+    #validates
     validates :name, presence: true
     validates :city, presence: true
     validates :identification, presence: true
