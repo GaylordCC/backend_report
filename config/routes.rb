@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   # root "articles#index"
   get '/health', to: 'health#health'
 
-  resources :companies, only: [:index, :show, :create, :update]
-  resources :visits, only: [:index, :show, :create, :update]
+  resources :companies, only: [:index, :show, :create, :update, :destroy]
+  resources :visits, only: [:index, :show, :create, :update, :destroy]
 end

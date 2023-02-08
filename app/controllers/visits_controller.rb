@@ -26,6 +26,14 @@ class VisitsController < ApplicationController
         render json: @visit, status: :ok
     end
 
+    def destroy
+        @visit = Visit.find(params[:id])
+        @visit.destroy
+        render json: [], status: 204
+    end
+
+    private
+
     def create_params
         params.require(:visit).permit(:company_id, :visit_date, :profesion, :coordinator, :number_day, :equimen_description, :contact_email, :phase, :initial_day, :final_day)
     end

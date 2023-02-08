@@ -27,6 +27,13 @@ class CompaniesController < ApplicationController
         render json: @company, status: :ok
     end
 
+    # COMPANY /companies/{id}
+    def destroy
+        @company = Company.find(params[:id])
+        @company.destroy
+        render json: [], status:204
+    end
+
     private
 
     def create_params
@@ -36,5 +43,4 @@ class CompaniesController < ApplicationController
     def update_params
         params.require(:company).permit(:name, :city, :identification, :adress, :email, :phone)
     end
-
 end
