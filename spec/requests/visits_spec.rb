@@ -97,8 +97,8 @@ RSpec.describe "Visits", type: :request do
     end
 
     describe "PUT /visits/{id}" do
-        let!(:company) { create(:company)}
-        let!(:iten) { create(:visit)}
+        let!(:company) { create(:company) }
+        let!(:iten) { create(:visit) }
 
         it "should update a visit" do
             req_payload = {
@@ -136,14 +136,4 @@ RSpec.describe "Visits", type: :request do
             expect(response).to have_http_status(:unprocessable_entity)
         end
     end
-
-
-
-
-    
-
-     
-
-
-
 end

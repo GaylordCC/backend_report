@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_12_152645) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_13_173152) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -23,6 +23,33 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_12_152645) do
     t.string "phone"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "reports", force: :cascade do |t|
+    t.string "report_title"
+    t.string "report_subtitle"
+    t.string "connection_point"
+    t.datetime "initial_day"
+    t.datetime "final_day"
+    t.integer "total_days_service"
+    t.string "author"
+    t.string "reviewer"
+    t.string "client_responsible"
+    t.string "equipment"
+    t.string "equipment_model"
+    t.integer "working_voltage"
+    t.string "connection_type"
+    t.integer "phase_number"
+    t.integer "total_power"
+    t.string "company_photo"
+    t.string "connection_point_photo"
+    t.string "city"
+    t.string "department"
+    t.integer "year"
+    t.bigint "visit_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["visit_id"], name: "index_reports_on_visit_id"
   end
 
   create_table "visits", force: :cascade do |t|
@@ -41,5 +68,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_12_152645) do
     t.index ["company_id"], name: "index_visits_on_company_id"
   end
 
+  add_foreign_key "reports", "visits"
   add_foreign_key "visits", "companies"
 end
