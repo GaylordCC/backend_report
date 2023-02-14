@@ -19,8 +19,6 @@ RSpec.describe Report, type: :model do
       should validate_presence_of(:connection_type)
       should validate_presence_of(:phase_number)
       should validate_presence_of(:total_power)
-      should validate_presence_of(:company_photo)
-      should validate_presence_of(:connection_point_photo)
       should validate_presence_of(:city)
       should validate_presence_of(:department)
       should validate_presence_of(:year)

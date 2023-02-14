@@ -45,8 +45,6 @@ RSpec.describe "Reports", type: :request do
                     connection_type: "connection_type",
                     phase_number: "phase_number",
                     total_power: "total_power",
-                    company_photo: "company_photo",
-                    connection_point_photo: "connection_point_photo",
                     city: "city",
                     department: "department",
                     year: DateTime.now,
@@ -75,7 +73,6 @@ RSpec.describe "Reports", type: :request do
                     connection_type: "connection_type",
                     phase_number: "phase_number",
                     total_power: "total_power",
-                    company_photo: "company_photo",
                 }
             } 
 
@@ -105,7 +102,6 @@ RSpec.describe "Reports", type: :request do
                     connection_type: "connection_type",
                     phase_number: "phase_number",
                     total_power: "total_power",
-                    company_photo: "company_photo",
                 }
             }
 
@@ -131,7 +127,6 @@ RSpec.describe "Reports", type: :request do
                     connection_type: nil,
                     phase_number: nil,
                     total_power: nil,
-                    company_photo: nil,
                 }
             }
 
@@ -160,8 +155,7 @@ RSpec.describe "Reports", type: :request do
                     working_voltage: nil,
                     connection_type: nil,
                     phase_number: nil,
-                    total_power: nil,
-                    company_photo: nil, 
+                    total_power: nil, 
                 }
             }
             
@@ -184,7 +178,6 @@ RSpec.describe "Reports", type: :request do
                     connection_type: "connection_type",
                     phase_number: "phase_number",
                     total_power: "total_power",
-                    company_photo: "company_photo",
                 }
             }
 

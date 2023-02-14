@@ -17,8 +17,6 @@ FactoryBot.define do
     connection_type { Faker::Code.asin }
     phase_number { Faker::Number.between(from: 1, to: 3) }
     total_power { Faker::Number.between(from: 1, to: 1000) }
-    company_photo { Faker::Movie.title }
-    connection_point_photo { Faker::Movie.title }
     city { Faker::Address.city }
     department { Faker::Australia.state }
     year { Faker::Stripe.year }

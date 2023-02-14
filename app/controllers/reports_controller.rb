@@ -30,6 +30,28 @@ class ReportsController < ApplicationController
     private
 
     def create_params
-        params.require(:report).permit(:visit_id, :report_title, :report_subtitle, :connection_point, :initial_day, :final_day, :total_days_service, :author, :reviewer, :client_responsible, :equipment, :equipment_model, :working_voltage, :connection_type, :phase_number, :total_power, :company_photo, :connection_point_photo, :city, :department, :year)
+        params.require(:report).permit(
+            :visit_id,
+            :report_title,
+            :report_subtitle,
+            :connection_point,
+            :initial_day,
+            :final_day,
+            :total_days_service,
+            :author,
+            :reviewer,
+            :client_responsible,
+            :equipment,
+            :equipment_model,
+            :working_voltage,
+            :connection_type,
+            :phase_number,
+            :total_power,
+            :city,
+            :department,
+            :year,
+            :company_photo_file,
+            :connection_point_photo_file
+        )
     end
 end

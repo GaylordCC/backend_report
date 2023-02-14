@@ -1,5 +1,9 @@
 class Report < ApplicationRecord
   belongs_to :visit
+  
+  # Attachement files
+  has_one_attached :company_photo_file
+  has_one_attached :connection_point_photo_file
 
   validates :report_title, presence: true
   validates :report_subtitle, presence: true
@@ -16,8 +20,6 @@ class Report < ApplicationRecord
   validates :connection_type, presence: true
   validates :phase_number, presence: true
   validates :total_power, presence: true
-  validates :company_photo, presence: true
-  validates :connection_point_photo, presence: true
   validates :city, presence: true
   validates :department, presence: true
   validates :year, presence: true
