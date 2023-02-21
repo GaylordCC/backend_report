@@ -1,5 +1,6 @@
 class Report < ApplicationRecord
   belongs_to :visit
+  belongs_to :detail_report, optional: true
   
   # Attachement files
   has_one_attached :company_photo_file

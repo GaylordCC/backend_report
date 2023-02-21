@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_14_204852) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_21_163234) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -53,6 +53,40 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_14_204852) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "detail_reports", force: :cascade do |t|
+    t.datetime "hour"
+    t.decimal "u_1"
+    t.decimal "u_2"
+    t.decimal "u_3"
+    t.decimal "u_n"
+    t.decimal "u_12"
+    t.decimal "u_23"
+    t.decimal "u_31"
+    t.decimal "i_1"
+    t.decimal "i_2"
+    t.decimal "i_3"
+    t.decimal "i_n"
+    t.decimal "f"
+    t.decimal "u_over_1"
+    t.decimal "u_over_2"
+    t.decimal "u_over_3"
+    t.decimal "p_fetot_cap"
+    t.decimal "p_fetot_ind"
+    t.decimal "p_fund_tot"
+    t.decimal "q_tot_cap"
+    t.decimal "q_tot_ind"
+    t.decimal "thd_u_1"
+    t.decimal "thd_u_2"
+    t.decimal "thd_u_3"
+    t.decimal "thd_i_1"
+    t.decimal "thd_i_2"
+    t.decimal "thd_i_3"
+    t.decimal "u_percent"
+    t.decimal "i_percent"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "reports", force: :cascade do |t|
     t.string "report_title"
     t.string "report_subtitle"
@@ -75,6 +109,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_14_204852) do
     t.bigint "visit_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "detail_reports_id"
+    t.index ["detail_reports_id"], name: "index_reports_on_detail_reports_id"
     t.index ["visit_id"], name: "index_reports_on_visit_id"
   end
 
@@ -96,6 +132,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_14_204852) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "reports", "detail_reports", column: "detail_reports_id"
   add_foreign_key "reports", "visits"
   add_foreign_key "visits", "companies"
 end
