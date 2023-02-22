@@ -85,6 +85,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_21_163234) do
     t.decimal "i_percent"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "reports_id"
+    t.index ["reports_id"], name: "index_detail_reports_on_reports_id"
   end
 
   create_table "reports", force: :cascade do |t|
@@ -109,8 +111,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_21_163234) do
     t.bigint "visit_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "detail_reports_id"
-    t.index ["detail_reports_id"], name: "index_reports_on_detail_reports_id"
     t.index ["visit_id"], name: "index_reports_on_visit_id"
   end
 
@@ -132,7 +132,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_21_163234) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "reports", "detail_reports", column: "detail_reports_id"
+  add_foreign_key "detail_reports", "reports", column: "reports_id"
   add_foreign_key "reports", "visits"
   add_foreign_key "visits", "companies"
 end

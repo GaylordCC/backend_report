@@ -1,3 +1,3 @@
 class DetailReport < ApplicationRecord
-    has_one :report
+    belongs_to :report, optional: true
 end
