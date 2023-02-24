@@ -51,7 +51,7 @@ class ReportsController < ApplicationController
             :department,
             :year,
             :company_photo_file,
-            :connection_point_photo_file
+            :connection_point_photo_file,
         )
     end
 end

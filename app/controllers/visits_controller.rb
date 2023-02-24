@@ -35,6 +35,6 @@ class VisitsController < ApplicationController
     private
 
     def create_params
-        params.require(:visit).permit(:company_id, :visit_date, :profesion, :coordinator, :number_day, :equimen_description, :contact_email, :phase, :initial_day, :final_day)
+        params.require(:visit).permit(:company_id, :visit_date, :profesion, :coordinator, :number_day, :equimen_description, :contact_email, :phase, :initial_day, :final_day )
     end
 end
