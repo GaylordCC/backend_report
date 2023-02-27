@@ -9,6 +9,12 @@ class ReportsController < ApplicationController
         render json: @reports, status: :ok
     end
 
+    # GET /visits/{id}
+    def show
+        @report = Report.find(params[:id])
+        render json: @report, status: :ok
+    end
+
     # REPORT / Reports
     def create
         @report = Report.create!(create_params)
@@ -16,9 +22,15 @@ class ReportsController < ApplicationController
     end
 
     def update
-        @report = Report.find(params[:id])
-        @report.update!(create_params)
-        render json: @report, status: :ok
+        report = Report.find(params[:id])
+        response = report.update(udpate_params)
+
+        if (response)
+            render json: report, status: :ok
+        else
+            render json: report.errors, status: 406
+        end
+        
     end
 
     def destroy
@@ -51,7 +63,31 @@ class ReportsController < ApplicationController
             :department,
             :year,
             :company_photo_file,
-            :connection_point_photo_file,
+            :connection_point_photo_file
+        )
+    end
+
+    def udpate_params
+        params.require(:report).permit(
+            :visit_id,
+            :report_title,
+            :report_subtitle,
+            :connection_point,
+            :initial_day,
+            :final_day,
+            :total_days_service,
+            :author,
+            :reviewer,
+            :client_responsible,
+            :equipment,
+            :equipment_model,
+            :working_voltage,
+            :connection_type,
+            :phase_number,
+            :total_power,
+            :city,
+            :department,
+            :year
         )
     end
 end
