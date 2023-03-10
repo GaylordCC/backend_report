@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   resources :visits, only: [:index, :show, :create, :update, :destroy]
   resources :reports, only: [:index, :show, :create, :update, :destroy]
   resources :detail_reports, only: [:create]
+  resources :statistical_calculations, only: [:index, :show, :create, :update]
 end

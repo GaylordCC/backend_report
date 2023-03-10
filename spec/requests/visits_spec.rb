@@ -69,8 +69,6 @@ RSpec.describe "Visits", type: :request do
             #POST HTTP
             post "/visits", params: req_payload
             payload = JSON.parse(response.body)
-            pp "*"*100
-            pp (payload)
             expect(payload).to_not be_empty
             expect(payload).not_to be_nil
             expect(response).to have_http_status(:created)

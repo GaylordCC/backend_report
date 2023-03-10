@@ -1,6 +1,7 @@
 class Report < ApplicationRecord
   belongs_to :visit
   has_many :detail_reports
+  has_one :statistical_calculation
   
   # Attachement files
   has_one_attached :company_photo_file
