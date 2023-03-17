@@ -17,8 +17,9 @@ class StatisticalCalculationsController < ApplicationController
 
     # POST STATISTICAL_CALCULATIONS / statistical_calculations
     def create
-        @statistical_calculation = StatisticalCalculation.create!(create_params)
-        render json: @statistical_calculation, status: :created
+        # @statistical_calculation = StatisticalCalculation.create!(create_params)
+        IndicatorsService.indicators(10)
+        # render json: @statistical_calculation, status: :created
     end
 
     # PUT 
