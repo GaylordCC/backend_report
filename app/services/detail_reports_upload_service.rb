@@ -163,7 +163,10 @@ class DetailReportsUploadService
                     i_percent: i_percent.include?("-") ? 0 : i_percent.to_d,
                     reports_id: params[:report_id]
                 )
+                
             end
         end
+
+        IndicatorsService.indicators(params[:report_id])
     end
 end

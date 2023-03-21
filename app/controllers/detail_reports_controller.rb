@@ -4,6 +4,8 @@ class DetailReportsController < ApplicationController
 
     def create
         @detail_report = DetailReportsUploadService.uploadfile(create_params)
+        # byebug
+        # IndicatorsService.indicators(create_params[:report_id])
         render json: @detail_report, status: :ok
     end
 
