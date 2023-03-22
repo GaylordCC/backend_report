@@ -7,7 +7,9 @@ Rails.application.routes.draw do
 
   resources :companies, only: [:index, :show, :create, :update, :destroy]
   resources :visits, only: [:index, :show, :create, :update, :destroy]
-  resources :reports, only: [:index, :show, :create, :update, :destroy]
+  resources :reports, only: [:index, :show, :create, :update, :destroy] do
+    post :generate
+  end
   resources :detail_reports, only: [:create]
   resources :statistical_calculations, only: [:index, :show, :create, :update]
 end

@@ -1,7 +1,7 @@
 class IndicatorsService
     class << self
         def indicators(report_id)
-            
+
             u_1_min = DetailReport.where(reports_id: report_id).minimum(:u_1)
             u_1_max = DetailReport.where(reports_id: report_id).maximum(:u_1)
             u_1_prom = DetailReport.where(reports_id: report_id).average(:u_1)
@@ -152,6 +152,7 @@ class IndicatorsService
             i_percent_min = DetailReport.where(reports_id: report_id).minimum(:i_percent)
             i_percent_max = DetailReport.where(reports_id: report_id).maximum(:i_percent)
             i_percent_prom = DetailReport.where(reports_id: report_id).average(:i_percent)
+
             array_i_percent = DetailReport.where(reports_id: report_id).pluck(:i_percent)
             i_percent_percentil_99 = calculate_percentile(array_i_percent, 0.99, "i_percent_99")
             i_percent_percentil_95 = calculate_percentile(array_i_percent, 0.95, "i_percent_95")

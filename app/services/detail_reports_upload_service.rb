@@ -132,7 +132,7 @@ class DetailReportsUploadService
                 i_percent = r[i_percent_index] unless i_percent_index == -1                
                 
                 DetailReport.create!(
-                    # hour: hour.sub(".0", "").to_datetime,
+                    hour: hour.include?("-") ? 0 : hour.to_time,
                     u_1: u_1.include?("-") ? 0 : u_1.to_d,
                     u_2: u_2.include?("-") ? 0 : u_2.to_d,
                     u_3: u_3.include?("-") ? 0 : u_3.to_d,

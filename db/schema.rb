@@ -54,7 +54,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_17_204104) do
   end
 
   create_table "detail_reports", force: :cascade do |t|
-    t.datetime "hour"
+    t.string "hour"
     t.decimal "u_1"
     t.decimal "u_2"
     t.decimal "u_3"

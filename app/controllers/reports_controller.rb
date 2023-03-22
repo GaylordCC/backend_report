@@ -39,6 +39,15 @@ class ReportsController < ApplicationController
         render json: [], status: 204
     end
 
+    def generate
+        json_u1 = DetailReport.where(reports_id: params[:report_id]).select("u_1")
+        json_u2 = DetailReport.where(reports_id: params[:report_id]).select("u_2")
+        json_u3 = DetailReport.where(reports_id: params[:report_id]).select("u_3")
+        json_h1 = DetailReport.where(reports_id: params[:report_id]).select("hour")
+        json_indicators = StatisticalCalculation.where(report_id: params[:report_id])
+        return render json: { u1: json_u1, u2: json_u2, u3: json_u3, h1: json_h1, indicators: json_indicators }, status: 200
+    end
+
     private
 
     def create_params
