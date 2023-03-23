@@ -44,9 +44,15 @@ class ReportsController < ApplicationController
         json_u2 = DetailReport.where(reports_id: params[:report_id]).pluck("u_2")
         json_u3 = DetailReport.where(reports_id: params[:report_id]).pluck("u_3")
         json_h1 = DetailReport.where(reports_id: params[:report_id]).pluck("hour")
+        json_perc99_u1 = StatisticalCalculation.where(report_id: params[:report_id]).pluck("u_1_percentil_99")
+        json_perc95_u1 = StatisticalCalculation.where(report_id: params[:report_id]).pluck("u_1_percentil_95")
+        json_perc5_u1 = StatisticalCalculation.where(report_id: params[:report_id]).pluck("u_1_percentil_5")
+        counter = json_u1.count
+        json_P5_u_1 = Array.new(counter, json_perc5_u1)
+        json_P5_u1 = json_P5_u_1.flatten
         json_indicators = StatisticalCalculation.where(report_id: params[:report_id])
         pp 
-        return render json: { u1: json_u1, u2: json_u2, u3: json_u3, h1: json_h1, indicators: json_indicators }, status: 200
+        return render json: { u1: json_u1, u2: json_u2, u3: json_u3, h1: json_h1, indicators: json_indicators, P5_u1: json_P5_u1 }, status: 200
     end
 
     private
