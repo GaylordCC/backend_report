@@ -40,11 +40,12 @@ class ReportsController < ApplicationController
     end
 
     def generate
-        json_u1 = DetailReport.where(reports_id: params[:report_id]).select("u_1")
-        json_u2 = DetailReport.where(reports_id: params[:report_id]).select("u_2")
-        json_u3 = DetailReport.where(reports_id: params[:report_id]).select("u_3")
-        json_h1 = DetailReport.where(reports_id: params[:report_id]).select("hour")
+        json_u1 = DetailReport.where(reports_id: params[:report_id]).pluck("u_1")
+        json_u2 = DetailReport.where(reports_id: params[:report_id]).pluck("u_2")
+        json_u3 = DetailReport.where(reports_id: params[:report_id]).pluck("u_3")
+        json_h1 = DetailReport.where(reports_id: params[:report_id]).pluck("hour")
         json_indicators = StatisticalCalculation.where(report_id: params[:report_id])
+        pp 
         return render json: { u1: json_u1, u2: json_u2, u3: json_u3, h1: json_h1, indicators: json_indicators }, status: 200
     end
 
