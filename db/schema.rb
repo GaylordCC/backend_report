@@ -123,9 +123,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_17_204104) do
     t.decimal "u_2_prom"
     t.decimal "u_3_min"
     t.decimal "u_3_max"
-    t.decimal "u_3_prom"
+    t.decimal "u_3_prom"    
     t.decimal "I_1_min"
-    
     t.decimal "I_1_max"
     t.decimal "I_1_prom"
     t.decimal "I_2_min"

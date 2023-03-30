@@ -41,16 +41,21 @@ class ReportsController < ApplicationController
 
     def generate
         json_u1 = DetailReport.where(reports_id: params[:report_id]).pluck("u_1")
-        json_u2 = DetailReport.where(reports_id: params[:report_id]).pluck("u_2")
-        json_u3 = DetailReport.where(reports_id: params[:report_id]).pluck("u_3")
-        json_h1 = DetailReport.where(reports_id: params[:report_id]).pluck("hour")
+
+        json_indicators = StatisticalCalculation.find_by(report_id: params[:report_id])
         json_perc99_u1 = StatisticalCalculation.where(report_id: params[:report_id]).pluck("u_1_percentil_99")
         json_perc95_u1 = StatisticalCalculation.where(report_id: params[:report_id]).pluck("u_1_percentil_95")
         json_perc5_u1 = StatisticalCalculation.where(report_id: params[:report_id]).pluck("u_1_percentil_5")
         counter = json_u1.count
         json_P5_u_1 = Array.new(counter, json_perc5_u1)
         json_P5_u1 = json_P5_u_1.flatten
-        json_indicators = StatisticalCalculation.where(report_id: params[:report_id])
+
+        json_u2 = DetailReport.where(reports_id: params[:report_id]).pluck("u_2")
+
+        json_u3 = DetailReport.where(reports_id: params[:report_id]).pluck("u_3")
+
+        json_h1 = DetailReport.where(reports_id: params[:report_id]).pluck("hour")
+
         
         json_thd_u1 = DetailReport.where(reports_id: params[:report_id]).pluck("thd_u_1")
         json_thd_u2 = DetailReport.where(reports_id: params[:report_id]).pluck("thd_u_2")
@@ -78,10 +83,14 @@ class ReportsController < ApplicationController
         # json_sAPARENTE = DetailReport.where(reports_id: params[:report_id]).pluck("q_tot_ind")
 
         json_em = Report.where(id: params[:report_id]).pluck("equipment_model")
+        json_ct = Report.where(id: params[:report_id]).pluck("connection_type")
+        json_ind = Report.where(id: params[:report_id]).pluck("initial_day")
+        json_fd = Report.where(id: params[:report_id]).pluck("final_day")
+        json_fa = Report.where(id: params[:report_id]).pluck("phase_number")
 
 
 
-        return render json: { u1: json_u1, u2: json_u2, u3: json_u3, h1: json_h1, indicators: json_indicators, P5_u1: json_P5_u1, D_u1: json_thd_u1, D_u2: json_thd_u2, D_u3: json_thd_u3, D_i1: json_thd_i1, D_i2: json_thd_i2, D_i3: json_thd_i3, i1: json_i1, i2: json_i2, i3: json_i3, In: json_in, f: json_f, iper: json_ipercent, uper: json_upercent, pf_i: json_pfetot_ind, pa: json_pfund_tot, pr: json_qtot_ind, eqm: json_em }, status: 200
+        return render json: { u1: json_u1, u2: json_u2, u3: json_u3, h1: json_h1, indic: json_indicators, P5_u1: json_P5_u1, D_u1: json_thd_u1, D_u2: json_thd_u2, D_u3: json_thd_u3, D_i1: json_thd_i1, D_i2: json_thd_i2, D_i3: json_thd_i3, i1: json_i1, i2: json_i2, i3: json_i3, In: json_in, f: json_f, iper: json_ipercent, uper: json_upercent, pf_i: json_pfetot_ind, pa: json_pfund_tot, pr: json_qtot_ind, eqm: json_em, ct: json_ct, ind: json_ind, fd: json_fd, fa: json_fa }, status: 200
 
     end
 
