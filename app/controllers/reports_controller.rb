@@ -72,13 +72,17 @@ class ReportsController < ApplicationController
 
         # json_pfetot_cap = DetailReport.where(reports_id: params[:report_id]).pluck("p_fetot_cap")
         json_pfetot_ind = DetailReport.where(reports_id: params[:report_id]).pluck("p_fetot_ind")
-        
         json_pfund_tot = DetailReport.where(reports_id: params[:report_id]).pluck("p_fund_tot")
-        json_qtot_cap = DetailReport.where(reports_id: params[:report_id]).pluck("q_tot_cap")
+        # json_qtot_cap = DetailReport.where(reports_id: params[:report_id]).pluck("q_tot_cap")
         json_qtot_ind = DetailReport.where(reports_id: params[:report_id]).pluck("q_tot_ind")
+        # json_sAPARENTE = DetailReport.where(reports_id: params[:report_id]).pluck("q_tot_ind")
+
+        json_em = Report.where(id: params[:report_id]).pluck("equipment_model")
 
 
-        return render json: { u1: json_u1, u2: json_u2, u3: json_u3, h1: json_h1, indicators: json_indicators, P5_u1: json_P5_u1, D_u1: json_thd_u1, D_u2: json_thd_u2, D_u3: json_thd_u3, D_i1: json_thd_i1, D_i2: json_thd_i2, D_i3: json_thd_i3, i1: json_i1, i2: json_i2, i3: json_i3, In: json_in, f: json_f, iper: json_ipercent, uper: json_upercent, pf_i: json_pfetot_ind, pa: json_pfund_tot, pr: json_qtot_ind }, status: 200
+
+        return render json: { u1: json_u1, u2: json_u2, u3: json_u3, h1: json_h1, indicators: json_indicators, P5_u1: json_P5_u1, D_u1: json_thd_u1, D_u2: json_thd_u2, D_u3: json_thd_u3, D_i1: json_thd_i1, D_i2: json_thd_i2, D_i3: json_thd_i3, i1: json_i1, i2: json_i2, i3: json_i3, In: json_in, f: json_f, iper: json_ipercent, uper: json_upercent, pf_i: json_pfetot_ind, pa: json_pfund_tot, pr: json_qtot_ind, eqm: json_em }, status: 200
+
     end
 
     private
