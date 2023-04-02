@@ -35,7 +35,7 @@ class IndicatorsService
             i_1_percentil_99 = calculate_percentile(array_i_1, 0.99, "i1_99")
             i_1_percentil_95 = calculate_percentile(array_i_1, 0.95, "i1_95")
             i_1_percentil_5 = calculate_percentile(array_i_1, 0.05, "i1_5")
-            
+
             i_2_min = DetailReport.where(reports_id: report_id).minimum(:i_2)
             i_2_max = DetailReport.where(reports_id: report_id).maximum(:i_2)
             i_2_prom = DetailReport.where(reports_id: report_id).average(:i_2)
