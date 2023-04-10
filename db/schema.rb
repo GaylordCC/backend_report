@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_17_204104) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_10_204442) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -54,7 +54,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_17_204104) do
   end
 
   create_table "detail_reports", force: :cascade do |t|
-    t.string "hour"
+    t.datetime "hour"
     t.decimal "u_1"
     t.decimal "u_2"
     t.decimal "u_3"
@@ -123,7 +123,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_17_204104) do
     t.decimal "u_2_prom"
     t.decimal "u_3_min"
     t.decimal "u_3_max"
-    t.decimal "u_3_prom"    
+    t.decimal "u_3_prom"
     t.decimal "I_1_min"
     t.decimal "I_1_max"
     t.decimal "I_1_prom"
@@ -232,6 +232,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_17_204104) do
     t.decimal "i_percent_percentil_99"
     t.decimal "i_percent_percentil_95"
     t.decimal "i_percent_percentil_5"
+    t.decimal "t_thd_u_99"
     t.index ["report_id"], name: "index_statistical_calculations_on_report_id"
   end
 

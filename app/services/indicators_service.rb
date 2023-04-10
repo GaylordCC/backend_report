@@ -27,7 +27,7 @@ class IndicatorsService
             u_3_percentil_95 = calculate_percentile(array_u_3, 0.95, "u3_95")
             u_3_percentil_5 = calculate_percentile(array_u_3, 0.05, "u3_5")
             
-    
+                
             i_1_min = DetailReport.where(reports_id: report_id).minimum(:i_1)
             i_1_max = DetailReport.where(reports_id: report_id).maximum(:i_1)
             i_1_prom = DetailReport.where(reports_id: report_id).average(:i_1)
@@ -116,7 +116,13 @@ class IndicatorsService
             thd_u_3_percentil_99 = calculate_percentile(array_thd_u_3, 0.99, "thd_u_3_99")
             thd_u_3_percentil_95 = calculate_percentile(array_thd_u_3, 0.95, "thd_u_3_95")
             thd_u_3_percentil_5 = calculate_percentile(array_thd_u_3, 0.05, "thd_u_3_5")
-            
+
+
+            array_thd_u = DetailReport.where(reports_id: report_id).pluck(:thd_u_1, :thd_u_2, :thd_u_3)
+            array_thdu = array_thd_u.flatten
+            t_thd_u_99 = calculate_percentile(array_thdu, 0.99, "thd_u_tot")
+
+
             thd_i_1_min = DetailReport.where(reports_id: report_id).minimum(:thd_i_1)
             thd_i_1_max = DetailReport.where(reports_id: report_id).maximum(:thd_i_1)
             thd_i_1_prom = DetailReport.where(reports_id: report_id).average(:thd_i_1)
@@ -152,6 +158,7 @@ class IndicatorsService
             i_percent_min = DetailReport.where(reports_id: report_id).minimum(:i_percent)
             i_percent_max = DetailReport.where(reports_id: report_id).maximum(:i_percent)
             i_percent_prom = DetailReport.where(reports_id: report_id).average(:i_percent)
+
 
             array_i_percent = DetailReport.where(reports_id: report_id).pluck(:i_percent)
             i_percent_percentil_99 = calculate_percentile(array_i_percent, 0.99, "i_percent_99")
@@ -258,7 +265,9 @@ class IndicatorsService
                 thd_u_3_percentil_99: thd_u_3_percentil_99,
                 thd_u_3_percentil_95: thd_u_3_percentil_95,
                 thd_u_3_percentil_5: thd_u_3_percentil_5,
-    
+
+                t_thd_u_99: t_thd_u_99,
+
                 thd_i_1_min: thd_i_1_min,
                 thd_i_1_max: thd_i_1_max,
                 thd_i_1_prom: thd_i_1_prom,

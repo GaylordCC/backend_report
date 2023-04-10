@@ -39,7 +39,7 @@ class ReportsController < ApplicationController
         render json: [], status: 204
     end
 
-    def generate
+    def generate        
         json_indicators = StatisticalCalculation.find_by(report_id: params[:report_id])
 
         json_u1 = DetailReport.where(reports_id: params[:report_id]).pluck("u_1")
@@ -55,6 +55,7 @@ class ReportsController < ApplicationController
         json_thd_u1 = DetailReport.where(reports_id: params[:report_id]).pluck("thd_u_1")
         json_thd_u2 = DetailReport.where(reports_id: params[:report_id]).pluck("thd_u_2")
         json_thd_u3 = DetailReport.where(reports_id: params[:report_id]).pluck("thd_u_3")
+
         json_thd_i1 = DetailReport.where(reports_id: params[:report_id]).pluck("thd_i_1")
         json_thd_i2 = DetailReport.where(reports_id: params[:report_id]).pluck("thd_i_2")
         json_thd_i3 = DetailReport.where(reports_id: params[:report_id]).pluck("thd_i_3")
@@ -71,7 +72,6 @@ class ReportsController < ApplicationController
         # json_qtot_cap = DetailReport.where(reports_id: params[:report_id]).pluck("q_tot_cap")
         json_qtot_ind = DetailReport.where(reports_id: params[:report_id]).pluck("q_tot_ind")
         # json_sAPARENTE = DetailReport.where(reports_id: params[:report_id]).pluck("q_tot_ind")
-        
 
         json_em = Report.where(id: params[:report_id]).pluck("equipment_model")
         json_ct = Report.where(id: params[:report_id]).pluck("connection_type")
