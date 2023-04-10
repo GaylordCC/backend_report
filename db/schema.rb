@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_10_204442) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_10_222641) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -233,6 +233,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_10_204442) do
     t.decimal "i_percent_percentil_95"
     t.decimal "i_percent_percentil_5"
     t.decimal "t_thd_u_99"
+    t.decimal "t_thd_u_95"
+    t.decimal "t_thd_u_5"
+    t.decimal "t_thd_i_99"
+    t.decimal "t_thd_i_95"
+    t.decimal "t_thd_i_5"
     t.index ["report_id"], name: "index_statistical_calculations_on_report_id"
   end
 
