@@ -92,13 +92,13 @@ class IndicatorsService
             q_tot_ind_percentil_95 = calculate_percentile(array_q_tot_ind, 0.95, "q_tot_ind_95")
             q_tot_ind_percentil_5 = calculate_percentile(array_q_tot_ind, 0.05, "q_tot_ind_5")
             
-            # se_fund_tot_min = DetailReport.where(reports_id: report_id).minimum(:se_fund_tot)
-            # se_fund_tot_max = DetailReport.where(reports_id: report_id).maximum(:se_fund_tot)
-            # se_fund_tot_prom = DetailReport.where(reports_id: report_id).average(:se_fund_tot)
-            # array_se_fund_tot = DetailReport.where(reports_id: report_id).pluck(:se_fund_tot)
-            # se_fund_tot_percentil_99 = calculate_percentile(array_se_fund_tot, 0.99, "se_fundtot_99")
-            # se_fund_tot_percentil_95 = calculate_percentile(array_se_fund_tot, 0.95, "se_fundtot_95")
-            # se_fund_tot_percentil_5 = calculate_percentile(array_se_fund_tot, 0.05, "se_fundtot_5")
+            se_fund_tot_min = DetailReport.where(reports_id: report_id).minimum(:se_fund_tot)
+            se_fund_tot_max = DetailReport.where(reports_id: report_id).maximum(:se_fund_tot)
+            se_fund_tot_prom = DetailReport.where(reports_id: report_id).average(:se_fund_tot)
+            array_se_fund_tot = DetailReport.where(reports_id: report_id).pluck(:se_fund_tot)
+            se_fund_tot_percentil_99 = calculate_percentile(array_se_fund_tot, 0.99, "se_fundtot_99")
+            se_fund_tot_percentil_95 = calculate_percentile(array_se_fund_tot, 0.95, "se_fundtot_95")
+            se_fund_tot_percentil_5 = calculate_percentile(array_se_fund_tot, 0.05, "se_fundtot_5")
                 
             thd_u_1_min = DetailReport.where(reports_id: report_id).minimum(:thd_u_1)
             thd_u_1_max = DetailReport.where(reports_id: report_id).maximum(:thd_u_1)
@@ -259,12 +259,12 @@ class IndicatorsService
                 q_tot_ind_percentil_95: q_tot_ind_percentil_95,
                 q_tot_ind_percentil_5: q_tot_ind_percentil_5,
     
-                # se_fund_tot_min: se_fund_tot_min,
-                # se_fund_tot_max: se_fund_tot_max,
-                # se_fund_tot_prom: se_fund_tot_prom,
-                # se_fund_tot_percentil_99: se_fund_tot_percentil_99,
-                # se_fund_tot_percentil_95: se_fund_tot_percentil_95,
-                # se_fund_tot_percentil_5: se_fund_tot_percentil_5,
+                se_fund_tot_min: se_fund_tot_min,
+                se_fund_tot_max: se_fund_tot_max,
+                se_fund_tot_prom: se_fund_tot_prom,
+                se_fund_tot_percentil_99: se_fund_tot_percentil_99,
+                se_fund_tot_percentil_95: se_fund_tot_percentil_95,
+                se_fund_tot_percentil_5: se_fund_tot_percentil_5,
 
                 thd_u_1_min: thd_u_1_min,
                 thd_u_1_max: thd_u_1_max,

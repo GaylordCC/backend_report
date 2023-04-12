@@ -25,7 +25,7 @@ class DetailReportsUploadService
         p_fund_tot_index = -1
         q_tot_cap_3_index = -1
         q_tot_ind_index = -1
-        # se_fund_tot_index = -1
+        se_fund_tot_index = -1
         thd_u_1_index = -1
         thd_u_2_index = -1
         thd_u_3_index = -1
@@ -60,7 +60,7 @@ class DetailReportsUploadService
                 p_fund_tot_index = r.find_index {|i| i == "Pfundtot+(Max) [kW]" }
                 q_tot_cap_3_index = r.find_index {|i| i == "Q+totcap-(Max) [kvar]" }
                 q_tot_ind_index = r.find_index {|i| i == "Q+totind+(Max) [kvar]" }
-                # se_fund_tot_index = r.find_index {|i| i == "Sefundtot+(Max) [kVA]" }
+                se_fund_tot_index = r.find_index {|i| i == "Sefundtot+(Max) [kVA]" }
                 thd_u_1_index = r.find_index {|i| i == "THD U1(Max) [%]" }
                 thd_u_2_index = r.find_index {|i| i == "THD U2(Max) [%]" }
                 thd_u_3_index = r.find_index {|i| i == "THD U3(Max) [%]" }
@@ -202,7 +202,11 @@ class DetailReportsUploadService
                 else
                 q_tot_ind = r[q_tot_ind_index] unless q_tot_ind_index == -1
                 end
-                # se_fund_tot = r[se_fund_tot_index] unless se_fund_tot_index == -1
+                if se_fund_tot_index.nil?
+                    se_fund_tot = 0
+                else
+                se_fund_tot = r[se_fund_tot_index] unless se_fund_tot_index == -1
+                end
                 if thd_u_1_index.nil?
                     thd_u1 = 0
                 else 
@@ -271,7 +275,7 @@ class DetailReportsUploadService
                     p_fund_tot: p_fund_tot.include?("-") ? 0 : p_fund_tot.to_d,
                     q_tot_cap: q_tot_cap.include?("-") ? 0 : q_tot_cap.to_d,
                     q_tot_ind: q_tot_ind.include?("-") ? 0 : q_tot_ind.to_d,
-                    # se_fund_tot: se_fund_tot.include?("-") ? 0 : se_fund_tot.to_d,
+                    se_fund_tot: se_fund_tot.include?("-") ? 0 : se_fund_tot.to_d,
                     thd_u_1: thd_u1.include?("-") ? 0 : thd_u1.to_d,
                     thd_u_2: thd_u2.include?("-") ? 0 : thd_u2.to_d,
                     thd_u_3: thd_u3.include?("-") ? 0 : thd_u3.to_d,
