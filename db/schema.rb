@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_10_222641) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_11_192224) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -86,6 +86,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_10_222641) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "reports_id"
+    t.decimal "se_fund_tot"
     t.index ["reports_id"], name: "index_detail_reports_on_reports_id"
   end
 
@@ -238,6 +239,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_10_222641) do
     t.decimal "t_thd_i_99"
     t.decimal "t_thd_i_95"
     t.decimal "t_thd_i_5"
+    t.decimal "se_fund_tot_min"
+    t.decimal "se_fund_tot_max"
+    t.decimal "se_fund_tot_prom"
+    t.decimal "se_fund_tot_percentil_99"
+    t.decimal "se_fund_tot_percentil_95"
+    t.decimal "se_fund_tot_percentil_5"
     t.index ["report_id"], name: "index_statistical_calculations_on_report_id"
   end
 

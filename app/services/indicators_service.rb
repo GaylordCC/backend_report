@@ -92,6 +92,14 @@ class IndicatorsService
             q_tot_ind_percentil_95 = calculate_percentile(array_q_tot_ind, 0.95, "q_tot_ind_95")
             q_tot_ind_percentil_5 = calculate_percentile(array_q_tot_ind, 0.05, "q_tot_ind_5")
             
+            # se_fund_tot_min = DetailReport.where(reports_id: report_id).minimum(:se_fund_tot)
+            # se_fund_tot_max = DetailReport.where(reports_id: report_id).maximum(:se_fund_tot)
+            # se_fund_tot_prom = DetailReport.where(reports_id: report_id).average(:se_fund_tot)
+            # array_se_fund_tot = DetailReport.where(reports_id: report_id).pluck(:se_fund_tot)
+            # se_fund_tot_percentil_99 = calculate_percentile(array_se_fund_tot, 0.99, "se_fundtot_99")
+            # se_fund_tot_percentil_95 = calculate_percentile(array_se_fund_tot, 0.95, "se_fundtot_95")
+            # se_fund_tot_percentil_5 = calculate_percentile(array_se_fund_tot, 0.05, "se_fundtot_5")
+                
             thd_u_1_min = DetailReport.where(reports_id: report_id).minimum(:thd_u_1)
             thd_u_1_max = DetailReport.where(reports_id: report_id).maximum(:thd_u_1)
             thd_u_1_prom = DetailReport.where(reports_id: report_id).average(:thd_u_1)
@@ -154,8 +162,6 @@ class IndicatorsService
             t_thd_i_95 = calculate_percentile(array_thdi, 0.95, "thd_i_tot95")
             t_thd_i_5 = calculate_percentile(array_thdi, 0.05, "thd_i_tot5")
 
-
-
             u_percent_min = DetailReport.where(reports_id: report_id).minimum(:u_percent)
             u_percent_max = DetailReport.where(reports_id: report_id).maximum(:u_percent)
             u_percent_prom = DetailReport.where(reports_id: report_id).average(:u_percent)
@@ -167,7 +173,6 @@ class IndicatorsService
             i_percent_min = DetailReport.where(reports_id: report_id).minimum(:i_percent)
             i_percent_max = DetailReport.where(reports_id: report_id).maximum(:i_percent)
             i_percent_prom = DetailReport.where(reports_id: report_id).average(:i_percent)
-
 
             array_i_percent = DetailReport.where(reports_id: report_id).pluck(:i_percent)
             i_percent_percentil_99 = calculate_percentile(array_i_percent, 0.99, "i_percent_99")
@@ -254,6 +259,13 @@ class IndicatorsService
                 q_tot_ind_percentil_95: q_tot_ind_percentil_95,
                 q_tot_ind_percentil_5: q_tot_ind_percentil_5,
     
+                # se_fund_tot_min: se_fund_tot_min,
+                # se_fund_tot_max: se_fund_tot_max,
+                # se_fund_tot_prom: se_fund_tot_prom,
+                # se_fund_tot_percentil_99: se_fund_tot_percentil_99,
+                # se_fund_tot_percentil_95: se_fund_tot_percentil_95,
+                # se_fund_tot_percentil_5: se_fund_tot_percentil_5,
+
                 thd_u_1_min: thd_u_1_min,
                 thd_u_1_max: thd_u_1_max,
                 thd_u_1_prom: thd_u_1_prom,
