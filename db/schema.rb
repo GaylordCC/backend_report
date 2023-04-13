@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_11_192224) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_13_152324) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -245,6 +245,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_11_192224) do
     t.decimal "se_fund_tot_percentil_99"
     t.decimal "se_fund_tot_percentil_95"
     t.decimal "se_fund_tot_percentil_5"
+    t.decimal "f_min"
+    t.decimal "f_max"
+    t.decimal "f_prom"
     t.index ["report_id"], name: "index_statistical_calculations_on_report_id"
   end
 

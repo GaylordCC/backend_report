@@ -103,62 +103,62 @@ class DetailReportsUploadService
                 i_percent = nil
                 hour = r[hour_index] unless hour_index == -1
                 if u_1_index.nil?
-                    u_1 = 0 
+                    u_1 = '-' 
                 else
                     u_1 = r[u_1_index] unless u_1_index == -1
                 end
                 if u_2_index.nil?
-                    u_2 = 0
+                    u_2 = '-'
                 else
                 u_2 = r[u_2_index] unless u_2_index == -1
                 end
                 if u_3_index.nil?
-                    u_3 = 0
+                    u_3 = '-'
                 else
                 u_3 = r[u_3_index] unless u_3_index == -1
                 end
                 if u_n_index.nil?
-                    u_n = 0
+                    u_n = '-'
                 else
                 u_n = r[u_n_index] unless u_n_index == -1
                 end
                 if u_12_index.nil?
-                    u_12 = 0
+                    u_12 = '-'
                 else  
                 u_12 = r[u_12_index] unless u_12_index == -1
                 end
                 if u_23_index.nil?
-                    u_23 = 0
+                    u_23 = '-'
                 else 
                 u_23 = r[u_23_index] unless u_23_index == -1
                 end
                 if u_31_index.nil?
-                    u_31 = 0
+                    u_31 = '-'
                 else  
                 u_31 = r[u_31_index] unless u_31_index == -1
                 end
                 if i_1_index.nil?
-                    i_1 = 0
+                    i_1 = '-'
                 else 
                 i_1 = r[i_1_index] unless i_1_index == -1
                 end
                 if i_2_index.nil?
-                    i_2 = 0
+                    i_2 = '-'
                 else
                 i_2 = r[i_2_index] unless i_2_index == -1
                 end
                 if i_3_index.nil?
-                    i_3 = 0
+                    i_3 = '-'
                 else  
                 i_3 = r[i_3_index] unless i_3_index == -1
                 end
                 if i_n_index.nil?
-                    i_n = 0
+                    i_n = '-'
                 else
                 i_n = r[i_n_index] unless i_n_index == -1
                 end
                 if f_index.nil?
-                    f_value = 0
+                    f_value = '-'
                 else
                 f_value = r[f_index] unless f_index == -1
                 end
@@ -178,77 +178,77 @@ class DetailReportsUploadService
                 u_over3 = r[u_over_3_index] unless u_over_3_index == -1
                 end
                 if p_fetot_cap_index.nil?
-                    p_fetot_cap = 0
+                    p_fetot_cap = '-'
                 else
                 p_fetot_cap = r[p_fetot_cap_index] unless p_fetot_cap_index == -1
                 end
                 if p_fetot_ind_index.nil?
-                    p_fetot_ind = 0
+                    p_fetot_ind = '-'
                 else
                 p_fetot_ind = r[p_fetot_ind_index] unless p_fetot_ind_index == -1
                 end
                 if p_fund_tot_index.nil?
-                    p_fund_tot = 0
+                    p_fund_tot = '-'
                 else
                 p_fund_tot = r[p_fund_tot_index] unless p_fund_tot_index == -1
                 end
                 if q_tot_cap_3_index.nil?
-                    q_tot_cap = 0
+                    q_tot_cap = '-'
                 else
                 q_tot_cap = r[q_tot_cap_3_index] unless q_tot_cap_3_index == -1
                 end
                 if q_tot_ind_index.nil?
-                    q_tot_ind = 0
+                    q_tot_ind = '-'
                 else
                 q_tot_ind = r[q_tot_ind_index] unless q_tot_ind_index == -1
                 end
                 if se_fund_tot_index.nil?
-                    se_fund_tot = 0
+                    se_fund_tot = '-'
                 else
                 se_fund_tot = r[se_fund_tot_index] unless se_fund_tot_index == -1
                 end
                 if thd_u_1_index.nil?
-                    thd_u1 = 0
+                    thd_u1 = '-'
                 else 
                 thd_u1 = r[thd_u_1_index] unless thd_u_1_index == -1
                 end
                 if thd_u_2_index.nil?
-                    thd_u2 = 0
+                    thd_u2 = '-'
                 else
                 thd_u2 = r[thd_u_2_index] unless thd_u_2_index == -1
                 end
                 if thd_u_3_index.nil?
-                    thd_u3 = 0
+                    thd_u3 = '-'
                 else
                 thd_u3 = r[thd_u_3_index] unless thd_u_3_index == -1
                 end
                 if thd_i_1_index.nil?
-                    thd_i1 = 0
+                    thd_i1 = '-'
                 else
                 thd_i1 = r[thd_i_1_index] unless thd_i_1_index == -1
                 end
                 if thd_i_2_index.nil?
-                    thd_i2 = 0
+                    thd_i2 = '-'
                 else
                 thd_i2 = r[thd_i_2_index] unless thd_i_2_index == -1
                 end
                 if thd_i_3_index.nil?
-                    thd_i3 = 0
+                    thd_i3 = '-'
                 else
                 thd_i3 = r[thd_i_3_index] unless thd_i_3_index == -1
                 end
                 if u_percent_index.nil?
-                    u_percent = 0
+                    u_percent = '-'
                 else
                 u_percent = r[u_percent_index] unless u_percent_index == -1
                 end
                 if i_percent_index.nil?
-                    i_percent = 0
+                    i_percent = '-'
                 else
                 i_percent = r[i_percent_index] unless i_percent_index == -1
                 end
                 if i_percent_index.nil?
-                    i_percent = 0
+                    i_percent = '-'
                 else
                 i_percent = r[i_percent_index] unless i_percent_index == -1
                 end                

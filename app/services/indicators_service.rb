@@ -52,6 +52,10 @@ class IndicatorsService
             i_3_percentil_95 = calculate_percentile(array_i_3, 0.95, "i3_95")
             i_3_percentil_5 = calculate_percentile(array_i_3, 0.05, "i3_5")
             
+            f_min = DetailReport.where(reports_id: report_id).minimum(:f)
+            f_max = DetailReport.where(reports_id: report_id).maximum(:f)
+            f_prom = DetailReport.where(reports_id: report_id).average(:f)
+
             p_fetot_cap_min = DetailReport.where(reports_id: report_id).minimum(:p_fetot_cap)
             p_fetot_cap_max = DetailReport.where(reports_id: report_id).maximum(:p_fetot_cap)
             p_fetot_cap_prom = DetailReport.where(reports_id: report_id).average(:p_fetot_cap)
@@ -179,6 +183,7 @@ class IndicatorsService
             i_percent_percentil_95 = calculate_percentile(array_i_percent, 0.95, "i_percent_95")
             i_percent_percentil_5 = calculate_percentile(array_i_percent, 0.05, "i_percent_5")
             
+            byebug
             st = StatisticalCalculation.create(
                 report_id: report_id,
 
@@ -223,7 +228,11 @@ class IndicatorsService
                 I_3_percentil_99: i_3_percentil_99,
                 I_3_percentil_95: i_3_percentil_95,
                 I_3_percentil_5: i_3_percentil_5,
-    
+
+                f_min: f_min,
+                f_max: f_max,
+                f_prom: f_prom,
+
                 p_fetot_cap_min: p_fetot_cap_min,
                 p_fetot_cap_max: p_fetot_cap_max,
                 p_fetot_cap_prom: p_fetot_cap_prom,
