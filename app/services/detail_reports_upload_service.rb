@@ -61,12 +61,12 @@ class DetailReportsUploadService
                 q_tot_cap_3_index = r.find_index {|i| i == "Q+totcap-(Max) [kvar]" }
                 q_tot_ind_index = r.find_index {|i| i == "Q+totind+(Max) [kvar]" }
                 se_fund_tot_index = r.find_index {|i| i == "Sefundtot+(Max) [kVA]" }
-                thd_u_1_index = r.find_index {|i| i == "THD U1(Max) [%]" }
-                thd_u_2_index = r.find_index {|i| i == "THD U2(Max) [%]" }
-                thd_u_3_index = r.find_index {|i| i == "THD U3(Max) [%]" }
-                thd_i_1_index = r.find_index {|i| i == "THD I1(Max) [%]" }
-                thd_i_2_index = r.find_index {|i| i == "THD I2(Max) [%]" }
-                thd_i_3_index = r.find_index {|i| i == "THD I3(Max) [%]" }
+                thd_u_1_index = r.find_index {|i| i == "THD U1(Max) [V]" }
+                thd_u_2_index = r.find_index {|i| i == "THD U2(Max) [V]" }
+                thd_u_3_index = r.find_index {|i| i == "THD U3(Max) [V]" }
+                thd_i_1_index = r.find_index {|i| i == "THD I1(Max) [A]" }
+                thd_i_2_index = r.find_index {|i| i == "THD I2(Max) [A]" }
+                thd_i_3_index = r.find_index {|i| i == "THD I3(Max) [A]" }
                 u_percent_index = r.find_index {|i| i == "u-(Max) [%]" }
                 i_percent_index = r.find_index {|i| i == "i-(Max) [%]" }
                 header = 100
@@ -163,17 +163,17 @@ class DetailReportsUploadService
                 f_value = r[f_index] unless f_index == -1
                 end
                 if u_over_1_index.nil?
-                    u_over1 = 0
+                    u_over1 = '-'
                 else
                     u_over1 = r[u_over_1_index] unless u_over_1_index == -1
                 end
                 if u_over_2_index.nil?
-                    u_over2 = 0
+                    u_over2 = '-'
                 else
                     u_over2 = r[u_over_2_index] unless u_over_2_index == -1
                 end
                 if u_over_3_index.nil?
-                    u_over3 = 0
+                    u_over3 = '-'
                 else
                 u_over3 = r[u_over_3_index] unless u_over_3_index == -1
                 end
@@ -252,7 +252,7 @@ class DetailReportsUploadService
                 else
                 i_percent = r[i_percent_index] unless i_percent_index == -1
                 end                
-                
+
                 DetailReport.create!(
                     hour: hour.include?("-") ? 0 : hour.to_time,
                     u_1: u_1.include?("-") ? 0 : u_1.to_d,
