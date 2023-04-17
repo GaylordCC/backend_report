@@ -183,7 +183,7 @@ class IndicatorsService
             i_percent_percentil_95 = calculate_percentile(array_i_percent, 0.95, "i_percent_95")
             i_percent_percentil_5 = calculate_percentile(array_i_percent, 0.05, "i_percent_5")
             
-            byebug
+
             st = StatisticalCalculation.create(
                 report_id: report_id,
 

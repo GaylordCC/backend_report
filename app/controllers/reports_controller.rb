@@ -81,9 +81,14 @@ class ReportsController < ApplicationController
         json_unom = Report.where(id: params[:report_id]).pluck("working_voltage")
         json_pnom = Report.where(id: params[:report_id]).pluck("total_power")
 
+ 
+        # Calculo de la Cargabilidad
+        carg = []
+        json_se_fund_tot.each do | ele |
+            carg << (ele / json_pnom[0])*100
+        end
 
-        return render json: { u1: json_u1, u2: json_u2, u3: json_u3, h1: json_h1, indic: json_indicators, P5_u1: json_P5_u1, D_u1: json_thd_u1, D_u2: json_thd_u2, D_u3: json_thd_u3, D_i1: json_thd_i1, D_i2: json_thd_i2, D_i3: json_thd_i3, i1: json_i1, i2: json_i2, i3: json_i3, In: json_in, f: json_f, iper: json_ipercent, uper: json_upercent, pf_i: json_pfetot_ind, pa: json_pfund_tot, pr: json_qtot_ind, eqm: json_em, ct: json_ct, ind: json_ind, fd: json_fd, fa: json_fa, unom: json_unom, pnom: json_pnom, papa: json_se_fund_tot }, status: 200
-        # return render json: { u1: json_u1, u2: json_u2, u3: json_u3, h1: json_h1, indic: json_indicators, P5_u1: json_P5_u1, D_u1: json_thd_u1, D_u2: json_thd_u2, D_u3: json_thd_u3, D_i1: json_thd_i1, D_i2: json_thd_i2, D_i3: json_thd_i3, i1: json_i1, i2: json_i2, i3: json_i3, In: json_in, f: json_f, iper: json_ipercent, uper: json_upercent, pf_i: json_pfetot_ind, pa: json_pfund_tot, pr: json_qtot_ind, eqm: json_em, ct: json_ct, ind: json_ind, fd: json_fd, fa: json_fa, unom: json_unom, pnom: json_pnom }, status: 200
+        return render json: { u1: json_u1, u2: json_u2, u3: json_u3, h1: json_h1, indic: json_indicators, P5_u1: json_P5_u1, D_u1: json_thd_u1, D_u2: json_thd_u2, D_u3: json_thd_u3, D_i1: json_thd_i1, D_i2: json_thd_i2, D_i3: json_thd_i3, i1: json_i1, i2: json_i2, i3: json_i3, In: json_in, f: json_f, iper: json_ipercent, uper: json_upercent, pf_i: json_pfetot_ind, pa: json_pfund_tot, pr: json_qtot_ind, eqm: json_em, ct: json_ct, ind: json_ind, fd: json_fd, fa: json_fa, unom: json_unom, pnom: json_pnom, papa: json_se_fund_tot, cgb: carg }, status: 200
     end
 
     private
