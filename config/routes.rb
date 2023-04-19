@@ -10,6 +10,6 @@ Rails.application.routes.draw do
   resources :reports, only: [:index, :show, :create, :update, :destroy] do
     post :generate
   end
-  resources :detail_reports, only: [:create]
+  resources :detail_reports, only: [:create, :destroy]
   resources :statistical_calculations, only: [:index, :show, :create, :update]
 end
