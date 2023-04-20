@@ -1,5 +1,6 @@
 class Visit < ApplicationRecord
   belongs_to :company
+  has_many :reports
 
   #validates
   validates :visit_date, presence: true

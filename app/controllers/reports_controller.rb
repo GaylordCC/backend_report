@@ -9,10 +9,12 @@ class ReportsController < ApplicationController
         render json: @reports, status: :ok
     end
 
-    # GET /visits/{id}
+    # GET / Reports/{id}
     def show
         @report = Report.find(params[:id])
-        render json: @report, status: :ok
+        detail_report_count = DetailReport.where(reports_id: params[:id]).count
+        has_detail = detail_report_count > 0 ? true : false
+        return render json: {report: @report, has_detail: has_detail}, status: :ok
     end
 
     # REPORT / Reports
@@ -30,7 +32,7 @@ class ReportsController < ApplicationController
         else
             render json: report.errors, status: 406
         end
-        
+
     end
 
     def destroy
