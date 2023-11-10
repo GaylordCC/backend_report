@@ -1,6 +1,6 @@
 class Company < ApplicationRecord
     #relationship
-    has_many :visits
+    has_many :visits, dependent: :destroy
 
     #validates
     validates :name, presence: true

@@ -14,20 +14,20 @@ class CompaniesController < ApplicationController
         render json: @company, status: :ok
     end
 
-    # COMPANY /companies
+    # POST /companies
     def create
         @company = Company.create!(create_params)
         render json: @company, status: :created
     end
 
-    # COMPANY /companies/{id}
+    # PUT/PATCH /companies/{id}
     def update
         @company = Company.find(params[:id])
         @company.update!(update_params)
         render json: @company, status: :ok
     end
 
-    # COMPANY /companies/{id}
+    # DELETE /companies/{id}
     def destroy
         @company = Company.find(params[:id])
         @company.destroy

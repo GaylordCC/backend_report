@@ -37,6 +37,8 @@ class ReportsController < ApplicationController
 
     def destroy
         @report = Report.find(params[:id])
+        DetailReport.where(reports_id: params[:id]).destroy_all
+        StatisticalCalculation.where(report_id: params[:id]).destroy_all
         @report.destroy
         render json: [], status: 204
     end
@@ -141,7 +143,9 @@ class ReportsController < ApplicationController
             :total_power,
             :city,
             :department,
-            :year
+            :year,
+            :company_photo_file,
+            :connection_point_photo_file
         )
     end
 end
